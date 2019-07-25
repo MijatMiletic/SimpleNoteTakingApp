@@ -5,36 +5,41 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
-    android:orientation="vertical">
+    android:background="#d6d6d6"
+
+    android:orientation="vertical"
+    android:padding="5dp">
 
     <TextView
         android:id="@+id/timeTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00423737"
+        android:ellipsize="end"
         android:maxWidth="250dp"
         android:maxLines="1"
         android:onClick="onShowNote"
         android:text="sdfadfadsfdsffsaddfsfsdaafsdsdfdfssdfsdfsdfsdffsdfsdfsdfsdsfdsdf"
-        android:ellipsize="end"
         android:textColor="#000"
         android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/titleTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/titleTextView"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
 
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="12dp"
         android:layout_marginRight="12dp"
         android:layout_marginBottom="8dp"
+        android:gravity="center"
         android:maxLines="1"
         android:text="12:10"
         android:textColor="#000"
@@ -48,6 +53,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:onClick="onOptions"
         android:src="@drawable/ic_more_vert_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
