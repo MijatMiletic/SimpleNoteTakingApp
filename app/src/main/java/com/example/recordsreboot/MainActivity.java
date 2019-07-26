@@ -50,23 +50,26 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
         setContentView(R.layout.activity_main);
 
         dateTextView = findViewById(R.id.showingDateTextView);
-
         cal = Calendar.getInstance();
-        changeDateTextView(new Date());
+        if(savedInstanceState != null){
+            long time = savedInstanceState.getLong(NoteEntry.COLUMN_TIME_STAMP);
+            showingDate = new Date(time);
+        } else {
+            showingDate = new Date();
+        }
+        changeDateTextView(showingDate);
 
         // Get database from helper
         DBHelper dbHelper = new DBHelper(this);
         db = dbHelper.getWritableDatabase();
 
         // set up the adapter and recycler view
-        adapter = new NoteAdapter(this, queryNotes(showingDate));
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
     }
 
     /* ========== ON CLICK METHODS ============*/
-
 
     /**
      * Listener for startActivityForResult. It handles events when
@@ -350,4 +353,10 @@ public class MainActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
 
+    @Override
+    public void onSaveInstanceState(Bundle outState){
+        super.onSaveInstanceState(outState);
+
+        outState.putLong(NoteEntry.COLUMN_TIME_STAMP, showingDate.getTime());
+    }
 }
